@@ -1,0 +1,77 @@
+<!-- Cabeçalho -->
+<nav *ngIf="deveAparecerMenu" class="navbar fixed-top navbar-expand-sm navbar-white bg-white container cabecalho" style="display:block">
+    
+    <div class="row">
+        <div class="col-12 centralizar-texto" >
+          <img src="/assets/intranet-logo.png" class="logomarca-mprn" /><br />
+        </div>
+      </div>
+      <div class="row col-12 centralizar-texto espaco-acima-campo">
+
+
+          <div class="input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text" id="icone-pesquisa"><i class="fa fa-search"
+                          aria-hidden="true"></i></span>
+              </div>
+              <input type="text" class="form-control" id="pesquisar-sistema" aria-describedby="icone-pesquisa"
+                  placeholder="Pesquisar">
+          </div>
+  
+  
+      </div>
+    
+</nav>
+
+
+
+<!-- Conteúdo com as páginas -->
+<div class="container geral espaco-container">
+
+
+  <router-outlet></router-outlet>
+
+</div>
+
+<nav *ngIf="deveAparecerMenu" class="navbar fixed-bottom navbar-expand-sm navbar-white bg-white container rodape">
+
+
+  <!-- Menu -->
+
+  <div class="d-flex justify-content-center flex-fill">
+    <div class="flex-fill menu-itens-center" [ngClass]="{ 'active': ehItemMenuSelecionado('/') }">
+      <a [routerLink]="['']">
+        <i class="fa fa-home" aria-hidden="true"></i>
+        <br />
+        Home
+      </a>
+    </div>
+    <div class="flex-fill menu-itens-center " [ngClass]="{ 'active': ehItemMenuSelecionado('/servicos') }">
+
+      <a [routerLink]="['servicos']">
+        <i class="fa fa-superpowers" aria-hidden="true"></i>
+        <br />
+        Serviços
+      </a>
+    </div>
+    <div class="flex-fill menu-itens-center " [ngClass]="{ 'active': ehItemMenuSelecionado('/perfil') }">
+
+      <a [routerLink]="['perfil']">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <br />
+        Perfil
+      </a>
+    </div>
+    <div class="flex-fill menu-itens-center ">
+
+      <a (click)="sair()" href="">
+        <i class="fa fa-power-off" aria-hidden="true"></i>
+        <br />
+        Sair
+      </a>
+    </div>
+
+  </div>
+
+
+</nav>

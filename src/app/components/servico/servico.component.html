@@ -1,0 +1,14 @@
+<div clas="container">
+<div class="row">
+    <div *ngIf="deveAparecerIcone" [ngClass]="{'col-4 col-md-2' : deveAparecerIcone }">
+        <img *ngIf="deveAparecerIcone" [src]="enderecoIcone" class="icone-servico" />
+    </div>
+    <div [ngClass]="{'col-8 col-md-10' : deveAparecerIcone, 'col-12': !deveAparecerIcone}">
+        <label class="nome-servico">{{ nomeServico }}</label>
+        <br>
+        <span class="descricao-servico">{{ descricaoServico }}</span>
+        <br>
+
+    </div>
+</div>
+</div>

@@ -1,0 +1,121 @@
+
+<!-- Área da Exibição Expandida do Stories -->
+<div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #autoShownModal="bs-modal"
+  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-auto-name">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h4 class="modal-title pull-left">Stories</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>
+      <div class="modal-body  modal-lg">
+        <carousel [startFromIndex]="2" [itemsPerSlide]="1.000001" [noPause]="true">
+          <slide>
+            <div class="story-expanded">
+              <img src="https://img.youtube.com/vi/fpckq8O5uyY/0.jpg" alt="first slide"
+                style="display: block; width: 100%;">
+              <div class="carousel-caption ">
+                <h3>Eudo Eleito PGJ</h3>
+                <p>Pela primeira vez.</p>
+                <a class="leia-mais-storie"
+                [routerLink]="['/noticia-completa']"><span class="badge badge-light">Leia mais</span></a>
+                
+               
+              </div>
+            </div>
+
+          </slide>
+
+          <slide>
+            <div class="story-expanded">
+              <img src="https://intranet.mp.rn.gov.br/Image_noticia.ashx?ID=274670" alt="first slide"
+                style="display: block; width: 100%;">
+              <div class="carousel-caption">
+                <h3>Núcleo de Autocomposição</h3>
+                <p>Natal ganha núcleo de autocomposição</p>
+                <a class="leia-mais-storie"
+                [routerLink]="['/noticia-completa']"><span class="badge badge-light">Leia mais</span></a>
+              </div>
+            </div>
+
+          </slide>
+
+          <slide>
+            <div class="story-expanded">
+              <img src="https://intranet.mp.rn.gov.br/Image_noticia.ashx?ID=274669" alt="first slide"
+                style="display: block; width: 100%;">
+              <div class="carousel-caption ">
+                <h3>PGJ Abre Edital</h3>
+                <p>Edital para atuação em Júri.</p>
+                <a class="leia-mais-storie"
+                [routerLink]="['/noticia-completa']"><span class="badge badge-light">Leia mais</span></a>
+              </div>
+            </div>
+
+          </slide>
+
+
+          <slide>
+            <div class="story-expanded">
+              <img src="https://intranet.mp.rn.gov.br/Image_noticia.ashx?ID=274667" alt="first slide"
+                style="display: block; width: 100%;">
+              <div class="carousel-caption ">
+                <h3>Pesquisa de Clima Organizacional</h3>
+                <p>Prazo vai até dia 02/12</p>
+                <a class="leia-mais-storie"
+                [routerLink]="['/noticia-completa']"><span class="badge badge-light">Leia mais</span></a>
+              </div>
+            </div>
+
+          </slide>
+
+        </carousel>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Área das miniaturas dos stories -->
+
+
+
+<h1 class="titulo-pagina">Stories</h1>
+
+<div class="container">
+  <div class="row ">
+    <div (click)="openModal(template)" class="story-item col-3 gradient-border">
+      <img src="https://img.youtube.com/vi/fpckq8O5uyY/0.jpg" alt="first slide">
+      <span class="caption"><i class="fa fa-play-circle" aria-hidden="true"></i> Eudo Eleito PGJ</span>
+    </div>
+    <div class="story-item col-3">
+      <img src="https://intranet.mp.rn.gov.br/Image_noticia.ashx?ID=274670" alt="first slide">
+      <span class="caption">Natal Ganha Núcleo</span>
+    </div>
+    <div class="story-item col-3">
+      <img src="https://intranet.mp.rn.gov.br/Image_noticia.ashx?ID=274669" alt="first slide">
+      <span class="caption">PGJ abre edital</span>
+    </div>
+    <div class="story-item col-3">
+      <img src="https://intranet.mp.rn.gov.br/Image_noticia.ashx?ID=274667" alt="first slide">
+      <span class="caption">Pesquisa de Clima</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- Área de Notícias -->
+
+<h1 class="titulo-pagina">Notícias</h1>
+
+<div class="container">
+  <noticia *ngFor='let n of noticias' [noticia]="n" [completa]='false'></noticia>
+  <div class="row" style="padding-bottom: 1em;">
+    <div class="col-12">
+      <button type="button" class="btn btn-danger" (click)="carregarMaisNoticias()"  style="width:100%">Carregar mais notícias</button>
+    </div>
+  </div>
+</div>

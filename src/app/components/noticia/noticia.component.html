@@ -1,0 +1,105 @@
+<div class="info">
+    <span [ngClass]="{'badge': true , 
+                       'badge-primary': ehTipo('NOTICIA') , 
+                       'badge-danger': ehTipo('COMUNICADO'), 
+                       'badge-success': ehTipo('CAMPANHA')}">
+        {{ getTipoNoticia() }}
+      </span>
+        <h2>
+            {{ noticia.titulo }}</h2>
+
+        <h3 class="data-hora">{{ noticia.dataEHora | date : 'dd/MM/yyyy HH:mm' }}</h3>
+
+        <a href="#" *ngFor="let t of noticia.listaDeTags">#{{ t }} </a>
+
+        <div *ngIf="completa">
+                <div class="row share" style="margin-top:1em;">
+
+                        <div class="col alinhado-esquerda">
+                                <i class="fa fa-heart-o" style="font-size:1.5em;" aria-hidden="true"></i>
+                                &nbsp;
+                                &nbsp;
+                                <span dropdown (onShown)="onShown()" (onHidden)="onHidden()" (isOpenChange)="isOpenChange()">
+                                        <a href id="basic-link" dropdownToggle (click)="false"
+                                           aria-controls="basic-link-dropdown"><i class="fa fa-share" aria-hidden="true" style="font-size:1.5em;"></i>  </a>
+                                        <ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu"
+                                            role="menu" aria-labelledby="basic-link">
+                                            <li>
+                                                <a class="dropdown-item" [href]="'https://web.whatsapp.com/send?text=' + noticia.titulo + '. Leia mais em ' + montarUrlNoticia()" target="_blank">Whatsapp</a>
+                                              </li>
+                                          
+                                            <li>
+                                            <a class="dropdown-item" [href]="'https://twitter.com/share?url=' + montarUrlNoticia() + '&text=' + noticia.titulo + '&hashtags=intranet-mprn'" target="_blank">Twitter</a>
+                                          </li>
+                                          <li>
+                                                <a class="dropdown-item" [href]="'http://www.facebook.com/sharer.php?u=' + montarUrlNoticia()" target="_blank">Facebook</a>
+                                              </li>
+                                              <li>
+                                                <a class="dropdown-item" [href]="'mailto:?Subject=Notícia da Intranet MPRN: ' + noticia.titulo + '&Body=Acesse a notícia em: ' + montarUrlNoticia()" target="_blank">E-mail</a>
+                                              </li>
+                                              <li>
+                                                <a class="dropdown-item" [href]="'http://www.linkedin.com/shareArticle?mini=true&url=' + montarUrlNoticia()" target="_blank">LinkedIn</a>
+                                              </li>
+                                              
+                                              <li>
+                                                <a class="dropdown-item" [href]="" (click)="imprimirPagina()" >Imprimir</a>
+                                              </li>
+                                        </ul>
+                                      </span>
+                                
+                        </div>
+                </div>
+                <p class="curtido-por">Curtido por {{ noticia.numeroCurtidas ? noticia.numeroCurtidas : 0  }} | Compartilhado por {{ noticia.numeroCompartilhamentos ? noticia.numeroCompartilhamentos : 0  }} </p>
+        </div>
+
+        <p *ngIf="!completa">{{ noticia.resumo }}&nbsp;&nbsp;<a class="leia-mais"
+                        [routerLink]="['/noticia-completa']">Leia mais...</a></p>
+
+        <div class="imagem">
+                <img class="imagem-destaque" [src]="noticia.imagemDestaque | safe: 'resourceUrl'" />
+        </div>
+
+       
+        <p *ngIf="completa" class="noticia-conteudo">
+                {{ noticia.conteudo }}
+        </p>
+
+        <div *ngIf="!completa">
+                <div class="row" style="margin-top:1em;">
+                        <div class="col alinhado-esquerda">
+                                <i class="fa fa-heart-o" style="font-size:1.5em;" aria-hidden="true"></i>
+                                &nbsp;
+                                &nbsp;
+                                <span dropdown [dropup]="true"  (onShown)="onShown()" (onHidden)="onHidden()" (isOpenChange)="isOpenChange()">
+                                        <a href id="basic-link" dropdownToggle (click)="false" 
+                                           aria-controls="basic-link-dropdown"><i class="fa fa-share" aria-hidden="true" style="font-size:1.5em;"></i>  </a>
+                                        <ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu"
+                                            role="menu" aria-labelledby="basic-link">
+                                            <li>
+                                                <a class="dropdown-item" [href]="'https://web.whatsapp.com/send?text=' + noticia.titulo + '. Leia mais em ' + montarUrlNoticia()" target="_blank">Whatsapp</a>
+                                              </li>
+                                          
+                                            <li>
+                                            <a class="dropdown-item" [href]="'https://twitter.com/share?url=' + montarUrlNoticia() + '&text=' + noticia.titulo + '&hashtags=intranet-mprn'" target="_blank">Twitter</a>
+                                          </li>
+                                          <li>
+                                                <a class="dropdown-item" [href]="'http://www.facebook.com/sharer.php?u=' + montarUrlNoticia()" target="_blank">Facebook</a>
+                                              </li>
+                                              <li>
+                                                <a class="dropdown-item" [href]="'mailto:?Subject=Notícia da Intranet MPRN: ' + noticia.titulo + '&Body=Acesse a notícia em: ' + montarUrlNoticia()" target="_blank">E-mail</a>
+                                              </li>
+                                              <li>
+                                                <a class="dropdown-item" [href]="'http://www.linkedin.com/shareArticle?mini=true&url=' + montarUrlNoticia()" target="_blank">LinkedIn</a>
+                                              </li>
+                                              
+                                              <li>
+                                                <a class="dropdown-item" [href]="" (click)="imprimirPagina()" >Imprimir</a>
+                                              </li>
+                                        </ul>
+                                      </span>
+                        </div>
+                </div>
+                <p class="curtido-por">Curtido por {{ noticia.numeroCurtidas ? noticia.numeroCurtidas : 0  }} | Compartilhado por {{ noticia.numeroCompartilhamentos ? noticia.numeroCompartilhamentos : 0  }} </p>
+        </div>
+
+</div>

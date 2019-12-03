@@ -1,0 +1,62 @@
+<h1 class="titulo-pagina">Serviços</h1>
+<br />
+
+<!-- Área de serviços destacados -->
+<h2 class="subtitulo">Destaques</h2>
+
+<div class="container " style="margin-top: 1em;">
+
+    <div class="container">
+        <div>
+            <div>
+                <ul>
+                    <li class="sem-ponto">
+                        <servico [deveAparecerIcone]="true" [enderecoIcone]="'/assets/logo-e-mp.png'"
+                            [nomeServico]="'e-MP'" [descricaoServico]="'Gerenciamento de Procedimentos Extrajudiciais'">
+                        </servico>
+
+                    </li>
+                    <li class="sem-ponto">
+
+                        <servico [deveAparecerIcone]="true" [enderecoIcone]="'/assets/mpvirtual-logo.png'"
+                            [nomeServico]="'MPVirtual'"
+                            [descricaoServico]="'Gerenciamento de Procedimentos Extrajudiciais (Legado)'"></servico>
+                    </li>
+                    <li class="sem-ponto">
+                        <servico [deveAparecerIcone]="true" [enderecoIcone]="'/assets/central-atendimento.svg'"
+                            [nomeServico]="'AtendeMP'" [descricaoServico]="'Abertura de Chamados'"></servico>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br /><br />
+
+
+<!-- Área de Outros Sistemas (com pesquisa) -->
+<h2 class="subtitulo">Outros Sistemas/Serviços</h2>
+
+    <div class="container">
+        <div>
+            <div>
+                <ul>
+                   
+                    <li class="sem-ponto">
+                        <servico [deveAparecerIcone]="false" [nomeServico]="'Ouvidoria'"
+                            [descricaoServico]="'Atendimento à População'"></servico>
+                    </li>
+
+                    <li class="sem-ponto">
+                        <servico [deveAparecerIcone]="false" [nomeServico]="'Corregedoria'"
+                            [descricaoServico]="'Relatório Mensal de Atividades'"></servico>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
